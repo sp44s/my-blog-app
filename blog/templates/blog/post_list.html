@@ -1,5 +1,4 @@
 
-
 <html>
     <head>
         <title>Django blog Example</title>
@@ -10,15 +9,13 @@
         </div>
 
         <div>
-            <p>published: 14.06.2017, 12:14</p>
-            <h2><a href="">first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2017, 12:14</p>
-            <h2><a href="">second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
+        {% for item in NamedPosts %}
+            <div>
+                <p>published: {{item.published_date}} </p>
+                <h3><a href="">{{ item.title }}</a></h3>
+                <p>{{ item.text | linebreaksbr }}</p>
+            </div>
+        {% endfor %}
         </div>
     </body>
 </html>

@@ -8,6 +8,9 @@
                 {{ onepost.published_date }}
             </div>
         {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' id=onepost.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
         <h1>{{ onepost.title }}</h1>
         <p>{{ onepost.text|linebreaksbr }}</p>
     </div>
